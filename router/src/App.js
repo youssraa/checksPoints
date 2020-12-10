@@ -23,6 +23,7 @@ class App extends React.Component {
         cover :"https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg",
         stars : 4 ,
         link:"https://www.youtube.com/watch?v=ZKzvjeqmxuY",
+        synop : "Set in a world where fantastic creatures coexist with humans, and in which the police have a special department dedicated to crimes involving magic. A human cop (Will Smith) is forced to work with an orc (Joel Edgerton), the first to enter the police force." ,
         
        
        
@@ -36,9 +37,10 @@ class App extends React.Component {
         src: "https://mr.comingsoon.it/imgdb/locandine/235x336/53750.jpg",
         cover : "https://fsmedia.imgix.net/cd/c9/5e/ba/4817/4d9a/93f0/c776ec32ecbc/lara-crofts-neck-looks-unnatural-in-the-new-poster-for-tomb-raider.png",
         stars : 4 ,  
-        link :"https://www.youtube.com/watch?v=1Sabpx02eyw&ab_channel=JEUXACTU",
+        link :"https://www.youtube.com/watch?v=8ndhidEmUbI",
+        synop : "Lara Croft, 21, has no plans or ambition: the daughter of an eccentric explorer who has been missing for seven years, this rebellious and independent young woman refuses to take over her father's empire." ,
       },
-      { id : 2 ,
+      { id : 3 ,
         title: "Black Panther" ,
         date : "2018, Ryan Coogler" ,
         timee : "134 min" ,
@@ -47,7 +49,8 @@ class App extends React.Component {
         src: "https://mr.comingsoon.it/imgdb/locandine/235x336/53715.jpg",
         cover : "https://www.gannett-cdn.com/-mm-/c03fd140debe8ad4c05cf81a5cad7ad61a12ce52/c=0-1580-2985-3266&r=x803&c=1600x800/local/-/media/2017/06/09/USATODAY/USATODAY/636326272873599176-Black-Panther-Teaser.jpg", 
         stars : 3 , 
-        link :"https://www.youtube.com/watch?v=noTuWxGmYlw",
+        link :"https://www.youtube.com/watch?v=dxWvtMOGAhw",
+        synop : "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country's past." ,
       },
  
     ],
@@ -93,7 +96,7 @@ class App extends React.Component {
         <Router>
        
  
-       <NavBar onTextChange={text=>this.setState({searchTerm:text})}/> 
+  <Route path="/"  component={()=><NavBar onTextChange={text=>this.setState({searchTerm:text})}/> } />
        
 
 <Row>
@@ -116,7 +119,7 @@ class App extends React.Component {
     isChecked :! this.state.isChecked  })}  />
  }
  {}
-<Route path="/movies" exact component={()=><MovieList movies={(this.state.searchTerm ==='')? (this.dynamicRating(this.movies) || this.dynamicSearch(this.movies)): (this.dynamicRating(this.movies)&&this.dynamicSearch(this.movies))} /> } />
+<Route path="/" exact component={()=><MovieList movies={(this.state.searchTerm ==='')? (this.dynamicRating(this.movies) || this.dynamicSearch(this.movies)): (this.dynamicRating(this.movies)&&this.dynamicSearch(this.movies))} /> } />
 <Route path="/watch/:id" exact component={()=><Watch movies={this.state.movies} />}/> 
   </Col>
   <Col>
